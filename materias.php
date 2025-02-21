@@ -82,7 +82,7 @@ if (isset($_GET['carrera_id'])) {
 
 <body>
     <div class="container">
-        <h1>Materias disponibles - <?php echo $carrera['nombre']; ?></h1>
+        <h1>Plan de estudio de <?php echo $carrera['nombre']; ?></h1>
         <form action="inscribir.php" method="POST">
             <input type="hidden" name="carrera_id" value="<?php echo $carrera_id; ?>">
 
@@ -97,7 +97,7 @@ if (isset($_GET['carrera_id'])) {
                     echo "<div class='year-title'>{$year_title}</div>";
                     foreach ($filtered_materias as $materia) {
                         echo "<div class='materia'>";
-                        echo "<input type='checkbox' name='materias[]' value='{$materia['id']}'>";
+                        echo "<name='materias[]' value='{$materia['id']}'>";
                         echo "{$materia['nombre']} (Año {$materia['anio']})";
                         echo "</div>";
                     }
@@ -105,9 +105,6 @@ if (isset($_GET['carrera_id'])) {
                 }
             }
             ?>
-
-            <br>
-            <input type="submit" value="Inscribirse">
         </form>
     </div>
 
