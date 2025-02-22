@@ -1,13 +1,5 @@
 <?php
-
-session_start(); // Iniciar sesión
-
-if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['materias'])) {
-    $_SESSION['materias_seleccionadas'] = $_POST['materias'];
-    header("Location: inscribir.php");
-    exit();
-}
-
+session_start();
 require_once './data_base/db_urquiza.php';
 
 // Obtener la carrera seleccionada (por defecto 'Analista Funcional' con ID 1)
@@ -17,19 +9,44 @@ $carrera_id = isset($_GET['carrera_id']) ? $_GET['carrera_id'] : 1;
 $sql = "SELECT nombre FROM carreras WHERE id = ?";
 $stmt = $conexion->prepare($sql);
 $stmt->execute([$carrera_id]);
-$carrera = $stmt->fetch();
+$carrera = $stmt->fetch(PDO::FETCH_ASSOC);
+
+// Verificar si la carrera existe
+$carrera_nombre = $carrera ? $carrera['nombre'] : "Carrera desconocida";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (!isset($_POST['carrera_id']) || empty($_POST['carrera_id'])) {
+        die("Error: No se seleccionó ninguna carrera.");
+    }
+
+    $carrera_id = $_POST['carrera_id'];
+    $_SESSION['carrera_seleccionada'] = $carrera_id;
+
+    // Obtener el nombre de la carrera
+    $sql = "SELECT nombre FROM carreras WHERE id = ?";
+    $stmt = $conexion->prepare($sql);
+    $stmt->execute([$carrera_id]);
+    $carrera = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    $_SESSION['carrera_seleccionada_nombre'] = $carrera ? $carrera['nombre'] : "Carrera desconocida";
+
+    // Guardar materias seleccionadas en la sesión
+    $_SESSION['materias_seleccionadas'] = $_POST['materias'] ?? [];
+
+    // Redirigir a inscribir.php
+    header("Location: inscribir.php");
+    exit();
+}
 
 // Consultar materias de la carrera seleccionada
 $sql = "SELECT * FROM materias WHERE carrera_id = ?";
 $stmt = $conexion->prepare($sql);
 $stmt->execute([$carrera_id]);
 $materias = $stmt->fetchAll();
-
 ?>
 
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -126,7 +143,7 @@ $materias = $stmt->fetchAll();
             </form>
         </div>
 
-        <h2><?php echo htmlspecialchars($carrera['nombre']); ?></h2>
+        <h2><?php echo htmlspecialchars($carrera_nombre); ?></h2>
         <form action="inscripcionamaterias2.php" method="POST">
             <input type="hidden" name="carrera_id" value="<?php echo $carrera_id; ?>">
 
