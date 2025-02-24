@@ -5,6 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/style.css">
     <title>Formulario de Pre-Inscripción</title>
+    <style>
+    /* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+form {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: auto;
+    text-align: left;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.mandatory {
+    color: red;
+}
+
+/* Estilos para los botones */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    flex: 1;
+    margin: 5px;
+}
+
+button[name="enviar"] {
+    background-color: #90EE90; /* Verde claro */
+    color: black;
+}
+
+button[type="reset"] {
+    background-color: #FFB6C1; /* Rojo claro */
+    color: black;
+}
+
+button.print-button {
+    background-color: #ADD8E6; /* Azul claro */
+    color: black;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+    </style>
 </head>
 <body>
 
