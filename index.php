@@ -20,7 +20,7 @@ if ($conexion) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscripción a Carreras</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
@@ -71,7 +71,7 @@ if ($conexion) {
 
         <section>
             <h1>Bienvenidos al Modulo de Alumnado</h1>
-            <p>Para inscribirte a las materias que deseas cursar en el año academico vigente, selecciona la carrera a la que estas inscripto a la izquierda para ver las materias disponibles y comenzar con el proceso de inscripción.</p>
+            <p>Las inscripciones a carreras para pre-ingresantes y las inscripciones a materias para alumnos se deben realizar dentro de los periodos de inscripcion estipulados en el calendario academico del Instituto Uruiza.</p>
             <a href="preinscripcion.php" class="inscripcion-link">INSCRIPCIÓN A CARRERAS DE NIVEL TERCIARIO</a>
         </section>
 
