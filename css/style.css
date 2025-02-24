@@ -1,4 +1,4 @@
-/* index.php */
+/* Estilos generales */
 * {
     margin: 0;
     padding: 0;
@@ -14,13 +14,14 @@ body {
     height: 100vh;
 }
 
+/* Header */
 header {
-    height: 60px;
-    background-color: #1b1b32;
+    height: 90px; 
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;
+    background-color: #1b1b32;
     color: white;
     z-index: 1000;
     position: fixed;
@@ -28,22 +29,28 @@ header {
     width: 100%;
 }
 
+/* Logo e Institución */
 header .my-logo {
     display: flex;
     align-items: center;
 }
 
+/* Imagen en la esquina superior izquierda con margen */
 header img {
-    height: 40px;
-    margin-right: 10px;
+    height: 60px; 
+    margin-left: 10px; 
 }
 
-header p {
+/* Texto al lado de la imagen */
+header .my-logo p {
     font-size: 1em;
-    color: white;
-    text-decoration: none;
+    max-width: 300px;
+    text-align: left;
+    white-space: normal; 
+    margin-left: 10px; 
 }
 
+/* Menú de navegación */
 nav {
     display: flex;
     align-items: center;
@@ -59,6 +66,7 @@ nav a:hover {
     color: orange;
 }
 
+/* Buscador */
 #search-box {
     padding: 10px 0;
     text-align: right;
@@ -70,12 +78,7 @@ nav a:hover {
     border: none;
 }
 
-main {
-    margin-top: 60px;
-    display: flex;
-    flex: 1;
-}
-
+/* Fondo sección principal */
 .urquiza-background {
     background-image: linear-gradient(
         0deg,
@@ -84,15 +87,29 @@ main {
     ), url("https://media.lacapital.com.ar/p/3ef5662c2dbfb07f35a8c28c46627aad/adjuntos/203/imagenes/005/944/0005944959/642x0/smart/los-alumnos-la-escuela-secundaria-n49-gral-jj-urquiza-protestaron-y-abandonador-el-establecimiento-foto-s-toriggino.jpg");
     background-repeat: no-repeat;
     background-size: cover;
+    background-position: center center; 
+    min-height: 20vh; 
     padding: 50px 20px;
     color: white;
-}
-
-.urquiza-background h1 {
-    font-size: 2.5em;
     text-align: center;
 }
 
+/* Título "Alumnado" */
+.urquiza-background h1 {
+    font-size: 2.5em;
+    text-align: center;
+    color: white;
+    text-shadow: 2px 2px 4px black;
+}
+
+/* Contenido principal */
+main {
+    margin-top: 90px; 
+    display: flex;
+    flex: 1;
+}
+
+/* Aside izquierdo y derecho */
 aside {
     padding: 20px;
     background-color: #f4f4f4;
@@ -107,6 +124,7 @@ aside {
     border-left: 2px solid #ddd;
 }
 
+/* Carreras */
 .carrera {
     margin-bottom: 20px;
     display: flex;
@@ -129,6 +147,7 @@ aside {
     color: coral;
 }
 
+/* Noticias */
 .noticias {
     list-style: none;
     padding-left: 0;
@@ -152,6 +171,7 @@ aside {
     color: #555;
 }
 
+/* Sección principal */
 section h1 {
     text-align: center;
 }
@@ -181,6 +201,20 @@ section p {
     color: white;
 }
 
+/* Footer */
+footer {
+    background-color: #1b1b32;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    margin: 10px 20px 0px 20px;
+}
+
+footer h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
 @media (max-width: 768px) {
     main {
         flex-direction: column;
@@ -196,155 +230,4 @@ section p {
         border: none;
         padding: 10px;
     }
-}
-
-footer {
-    background-color: #1b1b32;
-    color: white;
-    padding: 20px;
-    text-align: center;
-    margin: 10px 20px 0px 20px;
-}
-
-footer h2 {
-    font-size: 1.5em;
-    margin-bottom: 10px;
-}
-
-
-
-/* preinscripcion.php */
-body {
-    font-family: 'Roboto', sans-serif;
-    padding: 20px;
-    background-color: #f4f4f4;
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-p {
-    margin-bottom: 20px;
-    line-height: 1.6;
-}
-
-ul {
-    margin-bottom: 20px;
-}
-
-ul li {
-    margin-bottom: 10px;
-}
-
-.form-button {
-    display: flex;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.form-button a {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: #1b1b32;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    margin: 5px;
-}
-
-.form-button a:hover {
-    background-color: coral;
-}
-
-
-
-/* formulariopre.php */
-body {
-    font-family: 'Roboto', sans-serif;
-    padding: 20px;
-    background-color: #f4f4f4;
-}
-
-form {
-    background-color: white;
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 600px;
-    margin: auto;
-}
-
-h1 {
-    text-align: center;
-    color: #333;
-}
-
-label {
-    display: block;
-    margin-bottom: 10px;
-    color: #555;
-}
-
-input, select {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-}
-
-.form-actions {
-    display: flex;
-    justify-content: space-between;
-}
-
-.form-actions button {
-    padding: 10px 20px;
-    background-color: #1b1b32;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.form-actions button:hover {
-    background-color: coral;
-}
-
-.form-actions .print-button {
-    background-color: #555;
-}
-
-.form-actions .print-button:hover {
-    background-color: #999;
-}
-
-.mandatory {
-    color: red;
-    font-weight: bold;
-}
-
-
-
-.mensaje {
-    display: inline-block;       /* Ajusta el ancho al contenido del texto */
-    max-width: 90%;             /* Limita el ancho máximo para evitar que sea demasiado grande */
-    padding: 10px;              /* Espaciado interno */
-    margin: 10px auto;          /* Centra el mensaje horizontalmente */
-    border-radius: 5px;         /* Bordes redondeados */
-    text-align: center;         /* Centra el texto dentro del cuadro */
-    box-sizing: border-box;     /* Incluye padding dentro del tamaño del cuadro */
-}
-
-.exito {
-    background-color: #a9dfbf;  /* Color verde claro para éxito */
-    color: #0e6251;             /* Color oscuro para texto */
-    border: 1px solid #82e0aa;  /* Borde verde claro */
-}
-
-.error {
-    background-color: #f5b7b1;  /* Color rojo claro para errores */
-    color: #641e16;             /* Color oscuro para texto */
-    border: 1px solid #f1948a;  /* Borde rojo claro */
 }
